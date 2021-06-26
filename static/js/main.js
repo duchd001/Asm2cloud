@@ -52,7 +52,7 @@ $("#addproduct").on("submit", e => {
         },
         dataType: 'json',
         success: () => {
-            location.reload()
+           window.location.reload()
         },
         error: (err) => {
             console.log(err);
@@ -71,7 +71,7 @@ $(".deleteproduct").on("click", e => {
         },
         dataType: 'json',
         success: () => {
-            location.reload()
+            window.location.reload()
         },
         error: (err) => {
             console.log(err);
@@ -98,7 +98,7 @@ $(".editproduct").on("submit", e => {
         },
         dataType: 'json',
         success: () => {
-            window.location.href = '/index';
+           window.location.reload()
         },
         error: (err) => {
             console.log(err);
