@@ -1,0 +1,93 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>ATN Shop</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="head-contain">
+                <h1>ATN Toy Shopping Cart</h1>
+            </div>
+        </div>
+        <div class="main-contain">
+            <div class="col-sm-8">
+                <div class="contains">
+
+                    <div class="text">
+                        <h3>Product</h3>
+                    </div>
+                    <form id='form-type' style="margin-left: 1%;   ">
+                        <select id='select' style="width: 15%; margin:3% 0 3% 0 ;" class="form-select">
+                          <option value="car">car</option>
+                          <option value="tank">tank</option>
+                        </select>
+                        <input value='Search' class="btn btn-primary" type="submit">
+                    </form>
+                    <div class="products" id="products">
+                        <% productArray.forEach(function(view) { %>
+                            <div class=" product" id="div${view.id}">
+                                <form id='<%= view._id %>_aa' class='editproduct'>
+                                    <div style="margin: 5px;" class=name-product id="name${view.id}">
+                                        <input style="border-radius: 4px; border:1px solid rgb(148, 148, 148)" type="text" id="<%= view._id %>editname" value="<%= view.productname %>">
+                                    </div>
+                                    <div class="price-btn" style="display:flex;  flex-direction: column; justify-content: space-around; margin:5px; justify-content: baseline">
+                                        <div class="price" id="price${view.id}">
+                                            <input style="border-radius: 4px; border:1px solid rgb(148, 148, 148)" type="text" id="<%= view._id %>editprice" value="<%= view.price %>">
+                                        </div>
+                                        <label>Type:</label>
+                                        <input style="border-radius: 4px; border:1px solid rgb(148, 148, 148)" style="width: 100%;" id="<%= view._id %>edittype" value="<%= view.type %>" type="text">
+                                        <div style="margin-top: 10px;display: flex; justify-content: space-between;" class="btn-product">
+                                            <button style="width: 40%;" id='<%= view._id %>' class=" deleteproduct btn btn-danger ">
+                                                Delete 
+                                            </button>
+
+                                            <button style="width: 40%; " id='<%= view._id %>_edit' class="edit  btn btn-primary ">
+                                                Edit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <% }); %>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4 carts ">
+                <div class="text-2 ">
+                    <h3>Add product</h3>
+                </div>
+                <div class="total " id="total ">
+                    <form method="POST " id='addproduct'>
+                        <input class="text-2-1 " id='addproductname' placeholder="Name ">
+
+                        <input class="text-2-1 " id='addproductprice' placeholder="Price ">
+
+                        <input class="text-2-1 " id='addproducttype' placeholder="Type ">
+
+                        <p>
+                            <button type='submit' class="addproduct btn btn-primary "> Add
+                            </button>
+                        </p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js "></script>
+<script src='../static/js/main.js'></script>
+
+
+</html>
